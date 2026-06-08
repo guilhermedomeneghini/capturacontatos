@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Captar Contatos</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="app-label">Sistema local</p>
+          <h1>Captar Contatos</h1>
+        </div>
+        <div class="safety-note">
+          Coleta apenas dados publicos e para ao detectar bloqueio ou captcha.
+        </div>
+      </header>
+
+      <section class="workspace" aria-label="Busca de leads">
+        <form class="search-panel" id="searchForm">
+          <label class="field search-field" for="queryInput">
+            <span>Busca</span>
+            <input
+              id="queryInput"
+              name="query"
+              type="search"
+              placeholder="Dentista em Lages SC"
+              autocomplete="off"
+              required
+            />
+          </label>
+
+          <label class="field limit-field" for="limitInput">
+            <span>Limite</span>
+            <input
+              id="limitInput"
+              name="limit"
+              type="number"
+              min="1"
+              max="500"
+              value="10"
+            />
+          </label>
+
+          <button class="primary-button" id="searchButton" type="submit">
+            <i data-lucide="search"></i>
+            <span>Buscar Leads</span>
+          </button>
+        </form>
+
+        <div class="status-panel" aria-live="polite">
+          <div>
+            <strong id="statusTitle">Pronto para buscar</strong>
+            <p id="statusMessage">
+              Informe nicho e cidade para iniciar a automacao local.
+            </p>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="results-shell" aria-label="Resultados">
+        <div class="results-header">
+          <div>
+            <h2>Resultados</h2>
+            <p id="resultCount">Nenhum lead coletado ainda.</p>
+          </div>
+
+          <div class="export-actions">
+            <button class="ghost-button" id="csvButton" type="button" disabled>
+              <i data-lucide="download"></i>
+              <span>Exportar CSV</span>
+            </button>
+            <button class="ghost-button" id="jsonButton" type="button" disabled>
+              <i data-lucide="braces"></i>
+              <span>Exportar JSON</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Endereco</th>
+                <th>Site</th>
+                <th>Telefone</th>
+              </tr>
+            </thead>
+            <tbody id="resultsBody">
+              <tr class="empty-row">
+                <td colspan="4">Os leads encontrados aparecerao aqui.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="/vendor/lucide/lucide.min.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>
