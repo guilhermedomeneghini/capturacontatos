@@ -4,7 +4,7 @@
   "description": "Sistema local para captar leads publicos a partir de buscas no Google Maps.",
   "main": "dist/server.js",
   "scripts": {
-    "postinstall": "playwright install chromium",
+    "postinstall": "npx playwright install chromium",
     "dev": "tsx watch src/server.ts",
     "start": "node dist/server.js",
     "build": "tsc",
