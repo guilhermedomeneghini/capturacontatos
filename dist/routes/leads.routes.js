@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.leadsRouter = void 0;
+const express_1 = require("express");
+const leadsController_1 = require("../controllers/leadsController");
+exports.leadsRouter = (0, express_1.Router)();
+exports.leadsRouter.post("/search", leadsController_1.startSearch);
+exports.leadsRouter.get("/jobs/:id", leadsController_1.getJob);
+exports.leadsRouter.get("/jobs/:id/export/csv", leadsController_1.exportCsv);
+exports.leadsRouter.get("/jobs/:id/export/json", leadsController_1.exportJson);
